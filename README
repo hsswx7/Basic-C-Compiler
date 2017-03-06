@@ -1,6 +1,9 @@
 Harprabh Sangha
 sso: hsswx7
 
+This project includes a Basic Compiler in C with a Virtual Machine (VirtMach) to test the compiled program
+
+
 Files that are compiled must have the extension .fs16 and then compiled file will have .asm (Example Test.fs16 file is included)
 All .asm files are run on VirtMach
 
