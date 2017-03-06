@@ -1,0 +1,6 @@
+Begin
+	Var x :: y
+	Scan : x .
+	Scan : y .
+	Print [ x + y ] .
+End

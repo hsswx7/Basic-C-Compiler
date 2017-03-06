@@ -1,0 +1,53 @@
+Harprabh Sangha
+sso: hsswx7
+
+Files that are compiled must have the extension .fs16 and then compiled file will have .asm (Example Test.fs16 file is included)
+All .asm files are run on VirtMach
+
+-Extension requirments can be chained in the main.c file
+
+ex running comipler prgoram 
+	make
+	./comp filename 
+	-> output filename.asm
+ex Running VirtMach
+	./VirtMach filename
+
+P1 - > The Scanner is Table Driven I have included the file in the dir FSA_table.xlsx
+P3/P4 are both LOCAL/GLOBAL
+
+
+LOCAL OPTION IMPLEMENTED
+files for part 3 are semantics.c semantics.h | stack.c stack.h
+
+Excel file of the FSA_table is included 
+
+
+FULL SCANNER IMPLEMENTATION
+
+- I am creating a tree and if you would like the test the parser without the tree
+  then please go to dir included ParseWithoutTree. 
+- I am printing the Tree to the Screen professor didn't specifiy where to print the tree 
+
+
+
+CFG
+<program>  ->	<vars> <block>
+<block>    ->   Begin <vars> <stats> End
+<vars>     ->   empty | Var Identifier <mvars>         
+<mvars>    ->   empty | : : Identifier <mvars>
+<expr>     ->   <M> + <expr> | <M>
+<M>        ->   <T> - <M> | <T>
+<T>        ->   <F> * <T> | <F> / <T> | <F>
+<F>        -> - <F> | <R>
+<R>        ->   [ <expr> ] | Identifier | Number            
+<stats>    ->   <stat>  <mStat>
+<mStat>    ->   empty | <stat>  <mStat>
+<stat>     ->   <in> | <out> | <block> | <if> | <loop> | <assign>
+<in>       ->   Scan : Identifier .
+<out>      ->   Print [ <expr>  ] .
+<if>       ->   [ <expr> <RO> <expr> ]  Iff <block>                        
+<loop>     ->   Loop [ <expr> <RO> <expr> ] <block>
+<assign>   ->   Identifier == <expr> .                    // == is one token here
+<RO>       ->   >=> | <=< | = |  > | <  |  =!=           // each is one token h
+
